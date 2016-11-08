@@ -8,9 +8,11 @@
     "feathers"
   ],
   "license": "MIT",
-  "repository": {},
-  "author": {},
-  "contributors": [],
+  "repository": "https://github.com/PedroMD/scd-16-09",
+  "author": "Pedro Diogo",
+  "contributors": [
+    "Pedro Diogo"
+  ],
   "bugs": {},
   "engines": {
     "node": ">= 0.12.0"
@@ -19,7 +21,7 @@
     "test": "npm run jshint && npm run mocha",
     "jshint": "jshint src/. test/. --config",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/api.test.js"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -39,6 +41,10 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
+    "eslint": "^3.9.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.1",
+    "eslint-plugin-standard": "^2.0.1",
     "jshint": "^2.9.4",
     "mocha": "^3.1.2",
     "request": "^2.78.0"

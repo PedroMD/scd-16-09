@@ -1,21 +1,16 @@
-'use strict';
+"use strict";
 
-// user-model.js - A mongoose model
-// 
-// See http://mongoosejs.com/docs/models.html
-// for more of what you can do here.
-
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const RulesModel = require("../rules/rules-model");
 
 const userSchema = new Schema({
-  email: {type: String, required: true, unique: true},
+  email: {type: String, required: true, unique: true, index: true},
+  rulesIds: [{ type: Schema.Types.ObjectId, ref: "RulesModel", required: true }],
   password: { type: String, required: true },
-  
-  createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now }
+  createdAt: { type: Date, "default": Date.now }
 });
 
-const userModel = mongoose.model('user', userSchema);
+const userModel = mongoose.model("user", userSchema);
 
 module.exports = userModel;
