@@ -10,7 +10,7 @@ The RESTful API was documented using the [Swagger specification](http://swagger.
 
 *You can actually use this page to interact with the server as well, as it also works as a REST client.*
 
-### Models & Services design
+### DB Models & Services design
 
 There are 5 different services in this API, each with their own Model:
 * parameters
@@ -19,14 +19,14 @@ There are 5 different services in this API, each with their own Model:
 * users
 * alerts
 
-All of them have proper CRUD methods, and some are related to each other. Visiting the API documentation helps to visualize this. Swagger-ui, however, does not easily show the defined Models, so it might help visiting the page http://localhost:3030/models.
+All of them have proper CRUD methods, and some are related to each other. Visiting the API documentation helps to visualize this. Swagger-ui, however, does not easily show the defined Models, so it might help visiting  `http://localhost:3030/models` which renders it more clearly. Also, each service folder has its own `{service}-model.js` file, where the designed model is defined.
 
 ## Configuration
 
 All relevant configuration (listening ports, DB connection, etc.) can be found in the config folder. F
 
-or instance, if you do not want to clean the Database once the unit-testing is done (which can also be used to generate random data),
-set `testing.cleanDB` to `false`. This is useful if you just want to use the unit-testing for scaffolding purposes. Just make sure you remove all hooks preventing you to delete the protected services (check [NOTES](#notes)), or just do it via the mongo shell.
+or instance, if you do not want to clean the Database once the unit testing is done (which can also be used to generate random data),
+set `testing.cleanDB` to `false`. This is useful if you just want to use the unit testing for scaffolding purposes. Just make sure you remove all hooks preventing you to delete the protected services (check [NOTES](#notes)), or just do it via the mongo shell.
 
 
 ## Getting Started
@@ -60,7 +60,7 @@ Further explanation can be found on the documentation page.
 
 ## Testing
 
-Simply run `npm test` to test all unit-testing in /test/api.test.js
+Simply run `npm test` to test all unit testing in /test/api.test.js
 ### Scaffolding
 
 You can issue `npm test` to generate some random data only, if you tell it not to clean the DB after all tests are done. Just set the `testing.cleanDB` to false, on your config file (default.json, if you haven't specified otherwise)
