@@ -35,13 +35,13 @@ set `testing.cleanDB` to `false`. This is useful if you just want to use the uni
 
 2. Make sure you have all latest stable version of [NodeJS](https://nodejs.org/) & [npm](https://www.npmjs.com/) & [MongoDB](https://www.mongodb.com/download-center?jmp=nav) installed
 
-3. Install your dependencies
+3. Install dependencies
 
     ```
     cd path/to/SCD_16_09_PedroDiogo; npm install
     ```
 
-4. Start your app
+4. Start the server
 
     ```
     npm start
