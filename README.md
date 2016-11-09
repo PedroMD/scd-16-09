@@ -31,16 +31,17 @@ set `testing.cleanDB` to `false`. This is useful if you just want to use the uni
 
 ## Getting Started
 
-Getting up and running is as easy as 1, 2, 3.
+1. Download this repo
 
-1. Make sure you have all latest stable version of [NodeJS](https://nodejs.org/) & [npm](https://www.npmjs.com/) & [MongoDB](https://www.mongodb.com/download-center?jmp=nav) installed
-2. Install your dependencies
+2. Make sure you have all latest stable version of [NodeJS](https://nodejs.org/) & [npm](https://www.npmjs.com/) & [MongoDB](https://www.mongodb.com/download-center?jmp=nav) installed
+
+3. Install your dependencies
 
     ```
     cd path/to/SCD_16_09_PedroDiogo; npm install
     ```
 
-3. Start your app
+4. Start your app
 
     ```
     npm start
