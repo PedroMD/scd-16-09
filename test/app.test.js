@@ -10,7 +10,6 @@ const app = require("../src/app");
 describe("Feathers application tests", function () {
   before(function (done) {
     this.server = app.listen(3030);
-    // TODO:10 - check for DB connectivity
     this.server.once("listening", () => done());
   });
 

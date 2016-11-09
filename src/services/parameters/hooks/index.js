@@ -1,24 +1,7 @@
 "use strict";
 
 const hooks = require("feathers-hooks-common");
-
-/**
-* [removeLinkedAlerts description]
-* @return {[type]} [description]
-*/
-const removeLinkedAlerts = function () {
-  return function (hook) {
-    // console.log("REMOVELINKEDALERTS");
-    hook.params.query = {
-      ruleId: hook.id
-    };
-    hook.app.service("alerts").remove(null, hook.params)
-    .then(() => hook)
-    .catch(err => {
-      return err;
-    })
-  }
-}
+const globalHooks = require("../../../hooks");
 
 /**
 * Hook makes sure we're deleting a single resource only.
@@ -26,11 +9,11 @@ const removeLinkedAlerts = function () {
 * We can, however, issue a delete all from withing the API & tests, using services.
 * @return {[type]} [description]
 */
-const onlyIfSingleResource = function () {
+const onlyIfSingleResourceOrInternal = function () {
   const disable = hooks.disable("external");
-  const removeAlerts = removeLinkedAlerts();
+  const removeLinkedResources = globalHooks.removeLinkedResources("events", "paramId");
   return function (hook) {
-    const result = hook.id !== null ? removeAlerts(hook) : disable(hook);
+    const result = hook.id !== null ? removeLinkedResources(hook) : disable(hook);
     return Promise.resolve(result).then(() => hook);
   }
 }
@@ -42,7 +25,7 @@ exports.before = {
   update: [],
   patch: [],
   remove: [
-    onlyIfSingleResource()
+    onlyIfSingleResourceOrInternal()
   ]
 };
 
@@ -53,5 +36,6 @@ exports.after = {
   create: [],
   update: [],
   patch: [],
-  remove: []
+  remove: [
+  ]
 };

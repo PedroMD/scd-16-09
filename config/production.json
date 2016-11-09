@@ -1,5 +1,5 @@
 {
-  "host": "SCD_16_09_PedroDiogo-app.feathersjs.com",
+  "host": "",
   "port": 80,
   "mongodb": "DATABASE_URL",
   "public": "../public/",

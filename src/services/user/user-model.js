@@ -6,8 +6,8 @@ const RulesModel = require("../rules/rules-model");
 
 const userSchema = new Schema({
   email: {type: String, required: true, unique: true, index: true},
+  password: {type: String},
   rulesIds: [{ type: Schema.Types.ObjectId, ref: "RulesModel", required: true }],
-  password: { type: String, required: true },
   createdAt: { type: Date, "default": Date.now }
 });
 

@@ -8,7 +8,6 @@ const ParametersModel = require("../parameters/parameters-model");
 const rulesSchema = new Schema({
   paramId: { type: Schema.Types.ObjectId, ref: "ParametersModel", required: true },
   userId: { type: Schema.Types.ObjectId, ref: "UsersModel", required: true },
-  // emails: [{ type: String, required: true }],
   threshold: { type: Number, required: true },
   createdAt: { type: Date, "default": Date.now }
 });

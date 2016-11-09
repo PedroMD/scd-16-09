@@ -3,10 +3,10 @@
   "port": 3030,
   "mongodb": "mongodb://localhost:27017/SCD1609PedroDiogo",
   "public": "../public/",
-  "auth": {
-    "token": {
-      "secret": "Fq4kcMnIqb08dAwQs7n0CqSJ4gG6FO4TqHzYJBskpSFNgjfx92jsWjvlfA7GgY0Mpo9s8BKyrLJramtasphDMA=="
-    },
-    "local": {}
+  "testing": {
+    "cleanDB": true,
+    "eventsToBeCreatedPerParam" : 100,
+    "minValue": 10,
+    "maxValue" : 160
   }
 }

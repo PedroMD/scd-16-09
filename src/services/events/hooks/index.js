@@ -1,22 +1,48 @@
 "use strict";
 
-const hooks = require("feathers-hooks");
+const hooks = require("feathers-hooks-common");
+const globalHooks = require("../../../hooks");
 
 /**
-* [removeLinkedAlerts description]
-* @return {[type]} [description]
+* A chained hook which takes the previously converted hook.result at @formatAlerts(), to the following structure (example):
+* {
+  "name": "pressure",
+  "units": "Pa",
+  "events": [
+    {
+      "value": 78,
+      "timestamp": "2016-11-08T23:37:04.376Z"
+    },
+    {
+      "value": 84,
+      "timestamp": "2016-11-08T23:37:04.379Z"
+    },
+    {
+      "value": 46,
+      "timestamp": "2016-11-08T23:37:04.380Z"
+    },
+    {
+      "value": 111,
+      "timestamp": "2016-11-08T23:37:04.380Z"
+    }
+  ]
+}
+* @return {object} hook the hook object
 */
-const removeLinkedAlerts = function () {
+const format = function () {
   return function (hook) {
-    // console.log("REMOVELINKEDALERTS");
-    hook.params.query = {
-      ruleId: hook.id
-    };
-    hook.app.service("alerts").remove(null, hook.params)
-    .then(() => hook)
-    .catch(err => {
-      return err;
+    let result = {};
+    result.name = hook.result[0].paramId.name;
+    result.units = hook.result[0].paramId.units;
+    result.events = [];
+    hook.result.forEach((event, index) => {
+      result.events.push({
+        value: event.value,
+        timestamp: event.timestamp
+      })
     })
+    hook.result = result;
+    return hook;
   }
 }
 
@@ -26,11 +52,11 @@ const removeLinkedAlerts = function () {
 * We can, however, issue a delete all from withing the API & tests, using services.
 * @return {[type]} [description]
 */
-const onlyIfSingleResource = function () {
+const onlyIfSingleResourceOrInternal = function () {
   const disable = hooks.disable("external");
-  const removeAlerts = removeLinkedAlerts();
+  const removeLinkedResources = globalHooks.removeLinkedResources("alerts", "eventId");
   return function (hook) {
-    const result = hook.id !== null ? removeAlerts(hook) : disable(hook);
+    const result = hook.id !== null ? removeLinkedResources(hook) : disable(hook);
     return Promise.resolve(result).then(() => hook);
   }
 }
@@ -49,6 +75,7 @@ const checkForRule = function (event) {
                 // console.log("CONDITION PASSED - THERE IS A RULE FOR THIS PARAM")
                 if (event.value > rule.threshold) {
                   // console.log("CONDITION PASSED - ALERT!")
+                  delete hook.params.provider;
                   hook.app.service("alerts").create({
                     userId: user._id,
                     ruleId: rule._id,
@@ -139,13 +166,16 @@ exports.before = {
   update: [],
   patch: [],
   remove: [
-    onlyIfSingleResource()
+    onlyIfSingleResourceOrInternal()
   ]
 };
 
 exports.after = {
   all: [],
-  find: [],
+  find: [
+    hooks.iff(globalHooks.needsFormat(), hooks.populate("paramId", { field: "paramId", service: "/parameters" })),
+    hooks.iff(globalHooks.needsFormat(), format())
+  ],
   get: [],
   create: [
     checkForRules()

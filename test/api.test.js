@@ -6,9 +6,12 @@ const app = require("../src/app");
 const mockData = require("./mockData");
 const helper = require("./fns.js");
 
-// TODO - use .conf file to:
-// 1 - set cleaning db boolean
-// 2 - set amount of events to be created
+/**
+* Vars taken from config/default.json which determines how the tests will be processe
+*/
+const eventsToBeCreatedPerParam = app.get("testing").eventsToBeCreatedPerParam || 50;
+const minValue = app.get("testing").minValue || 10;
+const maxValue = app.get("testing").maxValue || 160;
 
 /* Global vars */
 let createdUsers = [];
@@ -18,7 +21,7 @@ let paramThresholds = [];
 let paramRules;
 let eventsHigherThanThreshold;
 
-/*
+/**
 *       API TESTING
 */
 describe("API Testing.", function () {
@@ -31,29 +34,33 @@ describe("API Testing.", function () {
 
   after(function (done) {
     // cleaning DB ...
-    const services = ["users", "parameters", "rules", "events", "alerts"];
-    let promises = [];
-    for (let i = 0; i < services.length; i++) {
-      promises.push(new Promise((resolve, reject) => {
-        app.service(services[i]).remove(null)
-        .then(res => {
-          resolve(res)
-        })
-        .catch(err => {
-          reject(err)
-        });
-      }));
-    }
-    Promise.all(promises)
-    .then(value => {
-      console.log("DB was cleaned");
+    if (app.get("testing").cleanDB) {
+      const services = ["users", "parameters", "rules", "events", "alerts"];
+      let promises = [];
+      for (let i = 0; i < services.length; i++) {
+        promises.push(new Promise((resolve, reject) => {
+          app.service(services[i]).remove(null)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          });
+        }));
+      }
+      Promise.all(promises)
+      .then(value => {
+        console.log("DB was cleaned");
+        this.server.close(done);
+      }, reason => {
+        console.log("Error while cleaning DB: ", reason)
+      });
+    } else {
       this.server.close(done);
-    }, reason => {
-      console.log("Error while cleaning DB: ", reason)
-    });
+    }
   });
 
-  /*
+  /**
   *       Users
   */
   describe("Testing Users.", function () {
@@ -96,7 +103,7 @@ describe("API Testing.", function () {
     });
   });
 
-  /*
+  /**
   *       Parameters
   */
   describe("Testing Parameters.", function () {
@@ -132,7 +139,7 @@ describe("API Testing.", function () {
     });
   });
 
-  /*
+  /**
   *       Rules
   */
   describe("Testing Rules.", function () {
@@ -154,13 +161,13 @@ describe("API Testing.", function () {
     });
   });
 
-  /*
+  /**
   *       Events
   */
   describe("Testing Events.", function () {
     describe("Creating Random Events.", function () {
       it("returns code 201 & the created events array", function (done) {
-        let events = helper.generateEvents(createdParams, 10, 160, 100);
+        let events = helper.generateEvents(createdParams, minValue, maxValue, eventsToBeCreatedPerParam);
         request({
           url: "http://localhost:3030/events",
           method: "POST",
@@ -176,7 +183,7 @@ describe("API Testing.", function () {
     });
   });
 
-  /*
+  /**
   *       Alerts
   */
   describe("Testing Alerts.", function () {
@@ -236,8 +243,8 @@ describe("API Testing.", function () {
     });
   });
 
-  /*
-  *       Users routes
+  /**
+  *       Linked routes
   */
   describe("Testing linked collections.", function () {
     describe("GET /users/{userId}/rules", function () {
@@ -273,5 +280,4 @@ describe("API Testing.", function () {
       });
     });
   });
-
 });
