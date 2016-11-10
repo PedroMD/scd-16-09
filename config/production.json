@@ -1,12 +1,12 @@
 {
   "host": "",
   "port": 80,
-  "mongodb": "DATABASE_URL",
+  "mongodb": "mongodb://restuser:7gk3F7enCrw7XdH@ds149437.mlab.com:49437/scd_1609_pedro_diogo",
   "public": "../public/",
-  "auth": {
-    "token": {
-      "secret": "FEATHERS_AUTH_SECRET"
-    },
-    "local": {}
+  "testing": {
+    "cleanDB": true,
+    "eventsToBeCreatedPerParam" : 100,
+    "minValue": 10,
+    "maxValue" : 160
   }
 }

@@ -25,8 +25,8 @@ All of them have proper CRUD methods, and some are related to each other. Visiti
 
 All relevant configuration (listening ports, DB connection, etc.) can be found in the config folder. F
 
-or instance, if you do not want to clean the Database once the unit-testing is done (which can also be used to generate random data),
-set `testing.cleanDB` to `false`. This is useful if you just want to use the unit-testing for scaffolding purposes. Just make sure you remove all hooks preventing you to delete the protected services (check [NOTES](#notes)), or just do it via the mongo shell.
+or instance, if you do not want to clean the Database once the unit testing is done (which can also be used to generate random data),
+set `testing.cleanDB` to `false`. This is useful if you just want to use the unit testing for scaffolding purposes. Just make sure you remove all hooks preventing you to delete the protected services (check [NOTES](#notes)), or just do it via the mongo shell.
 
 
 ## Getting Started
@@ -38,7 +38,7 @@ set `testing.cleanDB` to `false`. This is useful if you just want to use the uni
 3. Install dependencies
 
     ```
-    cd path/to/SCD_16_09_PedroDiogo; npm install
+    cd path/to/scd-16-09; npm install
     ```
 
 4. Start the server
@@ -61,7 +61,7 @@ Further explanation can be found on the documentation page.
 
 ## Testing
 
-Simply run `npm test` to test all unit-testing in /test/api.test.js
+Simply run `npm test` to test all unit testing in /test/api.test.js
 ### Scaffolding
 
 You can issue `npm test` to generate some random data only, if you tell it not to clean the DB after all tests are done. Just set the `testing.cleanDB` to false, on your config file (default.json, if you haven't specified otherwise)
