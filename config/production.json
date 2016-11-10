@@ -8,5 +8,10 @@
     "eventsToBeCreatedPerParam" : 100,
     "minValue": 10,
     "maxValue" : 160
+  },
+  "auth": {
+    "token": {
+      "secret": "YOlsDNjJo33EIcsTtKss0IVccdcLXYiFZl1XtHUOkjgntuJSmVBNJqnQzuVFADAjmYRj8wRto7D0gE969FdOMQ=="
+    }
   }
 }

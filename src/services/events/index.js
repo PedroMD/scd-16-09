@@ -9,7 +9,11 @@ module.exports = function () {
 
   const options = {
     Model: events,
-    paginate: false,
+    // paginate: false,
+    paginate: {
+      default: 5,
+      max: 25
+    },
     lean: true
   };
 

@@ -62,7 +62,7 @@ set `testing.cleanDB` to `false`. This is useful if you just want to use the uni
 
 ## NOTES
 
-As documented, some services do not allow for external DELETE requests, so if you really want to mess with it, make sure you check each service's "before" hooks and comment out the
+* As documented, some services do not allow for external DELETE requests, so if you really want to mess with it, make sure you check each service's "before" hooks and comment out the
 ```
 hooks.iff(hooks.isProvider("external"), hooks.disable("external"))
 ```
@@ -71,6 +71,10 @@ and/or
 onlyIfSingleResourceOrInternal()
 ```
 Further explanation can be found on the documentation page.
+
+* There are no CORS restrictions as default.
+
+* AA has not been implemented yet.
 
 ## Testing
 
