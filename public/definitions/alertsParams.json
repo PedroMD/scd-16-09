@@ -24,7 +24,8 @@
           },
           "timestamp": {
             "type": "string",
-            "format": "date"
+            "format": "date-time",
+            "description": "In date format (ISO8601). Automatically added whenever a User is created."
           }
         }
       }

@@ -19,8 +19,8 @@
     },
     "createdAt": {
       "type": "string",
-      "format": "date",
-      "description": "In date format (UTC Timezone). Automatically added whenever a Rule is created."
+      "format": "date-time",
+      "description": "In date format (ISO8601). Automatically added whenever a Rule is created."
     }
   }
 }

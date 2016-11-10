@@ -15,8 +15,8 @@
     },
     "createdAt": {
       "type": "string",
-      "format": "date",
-      "description": "In date format (UTC Timezone). Automatically added whenever a Parameter is created."
+      "format": "date-time",
+      "description": "In date format (ISO8601). Automatically added whenever a Parameter is created."
     }
   }
 }

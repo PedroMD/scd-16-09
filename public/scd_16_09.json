@@ -5,7 +5,7 @@
         "description": "\n\n### A RESTful API built for SCD_16_09\n\n#### Author\nPedro Diogo - pedrodiogoum@gmail.com\n\n#### Repository\nhttps://github.com/PedroMD/scd-16-09\n",
         "version": "1.0.0"
     },
-    "host": "https://scd-16-09.herokuapp.com",
+    "host": "scd-16-09.herokuapp.com",
     "schemes": [
         "http, https"
     ],
@@ -428,7 +428,7 @@
                 "description": "Fetches a single Event, by its Id. Returns a single Event object.\n",
                 "parameters": [
                     {
-                        "name": "parameterId",
+                        "name": "eventId",
                         "in": "path",
                         "description": "The ID of the Event to be fetched.",
                         "required": true,

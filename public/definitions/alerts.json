@@ -23,8 +23,8 @@
     },
     "timestamp": {
       "type": "string",
-      "format": "date",
-      "description": "In date format (UTC Timezone). Automatically added whenever an Alert is created."
+      "format": "date-time",
+      "description": "In date format (ISO8601). Automatically added whenever an Alert is created."
     }
   }
 }
