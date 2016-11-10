@@ -1,0 +1,30 @@
+{"definitions":
+  {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "HTTP error code (https://docs.feathersjs.com/middleware/error-handling.html)"
+        },
+        "message": {
+          "type": "string",
+          "description": "The error message in a string format (https://docs.feathersjs.com/middleware/error-handling.html)"
+        },
+        "className": {
+          "type": "string",
+          "description": "A CSS class name that can be handy for styling errors based on the error type. (https://docs.feathersjs.com/middleware/error-handling.html)"
+        },
+        "data": {
+          "type": "object",
+          "description": "Object that may contain additional data (https://docs.feathersjs.com/middleware/error-handling.html)"
+        },
+        "errors": {
+          "type": "object",
+          "description": "Object that may contain additional info about the error (https://docs.feathersjs.com/middleware/error-handling.html)"
+        }
+      }
+    }
+  }
+}

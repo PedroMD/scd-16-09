@@ -1,0 +1,32 @@
+{"definitions":
+  {
+    "ParametersEvents": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The unique name of the Parameter"
+        },
+        "units": {
+          "type": "string",
+          "description": "Parameter's units of measure"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer"
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
