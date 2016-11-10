@@ -4,7 +4,7 @@
   "mongodb": "mongodb://localhost:27017/SCD1609PedroDiogo",
   "public": "../public/",
   "testing": {
-    "cleanDB": true,
+    "cleanDB": false,
     "eventsToBeCreatedPerParam" : 100,
     "minValue": 10,
     "maxValue" : 160

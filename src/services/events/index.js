@@ -11,8 +11,8 @@ module.exports = function () {
     Model: events,
     // paginate: false,
     paginate: {
-      default: 5,
-      max: 25
+      default: 25,
+      max: 50
     },
     lean: true
   };

@@ -2,8 +2,8 @@
     "swagger": "2.0",
     "info": {
         "title": "SCD_16_09",
-        "description": "\n\n### A RESTful API built for SCD_16_09\n\n#### Author\nPedro Diogo - pedrodiogoum@gmail.com\n\n#### Repository\nhttps://github.com/PedroMD/scd-16-09\n",
-        "version": "v1"
+        "version": "v1",
+        "description": "\n\n### A RESTful API built for SCD_16_09\n\n#### Author\nPedro Diogo - pedrodiogoum@gmail.com\n\n#### Repository\nhttps://github.com/PedroMD/scd-16-09\n\n### Envelope for paginated endpoints\nSome requests (`GET /events` & `GET /alerts`) return a paginated result contained in the following structured envelope:\n```\n{\n  \"total\": 200,\n  \"limit\": 30,\n  \"skip\": 0,\n  \"data\": []\n}\n```\nPer default, the maximum amount of results to be returned is **25**, and the maximum allowed to be requested is **50**. \nEach paginated endpoint provide the needed queries to paginate through the results, by making use of `$limit` and `$skip` query parameters.\n\n**Example**: \n`GET /events$limit=30` will return 30 results inside `data`, as the maximum allowed is *50*. If `$limit` was set higher, *50* results would be sent anyway. To get the next items, the parameter `$skip=30` would need to be added to the query.\n"
     },
     "host": "scd-16-09.herokuapp.com",
     "basePath": "/api/v1",
@@ -333,22 +333,38 @@
         },
         "/events": {
             "get": {
-                "summary": "GET all Events",
-                "description": "This request fetches all Events, responding with an array of Events objects.\n",
+                "summary": "GET all Events (paginated)",
+                "description": "This request fetches all Events, responding with an array of Events\nobjects.\n",
                 "parameters": [
                     {
                         "name": "value",
                         "in": "query",
                         "required": false,
-                        "description": "Filter by Events with selected Value",
+                        "description": "Filter by Events with selected Value.",
                         "type": "string",
                         "format": "string"
                     },
                     {
                         "name": "paramId",
                         "in": "query",
-                        "description": "Filter by Events with the selected paramId",
+                        "description": "Filter by Events with the selected paramId.",
                         "required": false,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "$limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The amount of results we want to retrieve.",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "required": false,
+                        "description": "Offset number. Will skip N first results.",
                         "type": "string",
                         "format": "string"
                     }
@@ -358,11 +374,25 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "An array of Events",
+                        "description": "An paginated object with an Array of Events",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
+                            "type": "object",
+                            "properties": {
+                                "total": {
+                                    "type": "integer"
+                                },
+                                "limit": {
+                                    "type": "integer"
+                                },
+                                "skip": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
+                                    }
+                                }
                             }
                         }
                     },
@@ -1233,7 +1263,7 @@
         },
         "/alerts": {
             "get": {
-                "summary": "GET all Alerts",
+                "summary": "GET all Alerts (Paginated)",
                 "description": "This request fetches all Alerts, responding with an array of Alerts objects.\n",
                 "parameters": [
                     {
@@ -1275,6 +1305,22 @@
                         "required": false,
                         "type": "string",
                         "format": "string"
+                    },
+                    {
+                        "name": "$limit",
+                        "in": "query",
+                        "required": false,
+                        "description": "The amount of results we want to retrieve.",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "required": false,
+                        "description": "Offset number. Will skip N first results.",
+                        "type": "string",
+                        "format": "string"
                     }
                 ],
                 "tags": [
@@ -1284,9 +1330,24 @@
                     "200": {
                         "description": "An array of Alerts",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
+                            "type": "object",
+                            "properties": {
+                                "total": {
+                                    "type": "integer"
+                                },
+                                "limit": {
+                                    "type": "integer",
+                                    "description": "default will send 25; maximum is 50"
+                                },
+                                "skip": {
+                                    "type": "integer"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
+                                    }
+                                }
                             }
                         }
                     },

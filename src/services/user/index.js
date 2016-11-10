@@ -46,6 +46,7 @@ module.exports = function () {
         };
         // this will trigger a special hook on the service "alerts"
         params.pleaseFormat = true;
+        params.paginate = true;
         app.service("/api/v1/alerts").find(params)
         .then(alerts => {
           // console.log("ALERTS", alerts)

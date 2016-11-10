@@ -30,6 +30,7 @@ module.exports = function () {
   */
   app.use("/api/v1/parameters/:parameterId/events/", {
     find (params, cb) {
+      params.paginate = true;
       params.query = { paramId: params.parameterId };
       params.pleaseFormat = true;
       app.service("/api/v1/events").find(params)
@@ -49,6 +50,7 @@ module.exports = function () {
       params.query = { paramId: params.parameterId };
       // we're deleting the provider from params, so we can bypass events' before hooks.remove
       delete params.provider;
+      params.paginate = true;
       app.service("/api/v1/events").find(params)
       .then(events => {
         let promises = [];
