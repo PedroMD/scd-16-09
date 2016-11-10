@@ -1048,7 +1048,7 @@
                     "200": {
                         "description": "The deleted User object",
                         "schema": {
-                            "$ref": "/definitions/users.json.json"
+                            "$ref": "/definitions/users.json"
                         }
                     },
                     "default": {
