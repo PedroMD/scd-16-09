@@ -4,6 +4,17 @@
 
 This project uses [Node.js](https://nodejs.org/en/), [Feathers](http://feathersjs.com), an open source web framework for building modern real-time applications, and [MongoDB](https://www.mongodb.com) as DB.
 
+## Try it
+
+### Server
+
+The app has been deployed to Heroku, so you can point your REST client to [https://scd-16-09.herokuapp.com](https://scd-16-09.herokuapp.com)
+*Swagger specification can also be explored by visiting [https://scd-16-09.herokuapp.com](https://scd-16-09.herokuapp.com) & Models at [https://scd-16-09.herokuapp.com/models](https://scd-16-09.herokuapp.com/models)*
+
+### Postman Collections
+
+
+
 ## Documentation
 
 The RESTful API was documented using the [Swagger specification](http://swagger.io/), so whenever you start the server, you can access the Swagger-ui in http://localhost:3030/ as the API is also serving as a simple web server.
