@@ -1,34 +1,30 @@
-{"definitions":
-  {
-    "AlertsParams": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The unique name of the Parameter"
-        },
-        "units": {
-          "type": "string",
-          "description": "Parameter's units of measure"
-        },
-        "threshold": {
-          "type": "integer",
-          "description": "Threshold value which has triggered these alerts"
-        },
-        "events": {
-          "type": "array",
-          "description": "Array containing all events whose value > threshold, for the particular Parameter",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": {
-                "type": "integer"
-              },
-              "timestamp": {
-                "type": "string",
-                "format": "date"
-              }
-            }
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The unique name of the Parameter"
+    },
+    "units": {
+      "type": "string",
+      "description": "Parameter's units of measure"
+    },
+    "threshold": {
+      "type": "integer",
+      "description": "Threshold value which has triggered these alerts"
+    },
+    "events": {
+      "type": "array",
+      "description": "Array containing all events whose value > threshold, for the particular Parameter",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date"
           }
         }
       }
