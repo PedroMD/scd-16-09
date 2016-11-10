@@ -7,8 +7,7 @@
     },
     "host": "scd-16-09.herokuapp.com",
     "schemes": [
-        "http",
-        "https"
+        "http", "https"
     ],
     "produces": [
         "application/json"
@@ -45,14 +44,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Parameters"
+                                "$ref": "/definitions/parameters.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -69,14 +68,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Parameters"
+                                "$ref": "/definitions/parameters.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -91,7 +90,7 @@
                         "description": "Parameter object or array of Parameters objects",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Parameters"
+                            "$ref": "/definitions/parameters.json"
                         }
                     }
                 ],
@@ -111,7 +110,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -144,7 +143,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -184,7 +183,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -216,7 +215,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -247,7 +246,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -274,13 +273,13 @@
                     "200": {
                         "description": "One single formated object",
                         "schema": {
-                            "$ref": "#/definitions/ParametersEvents"
+                            "$ref": "/definitions/parametersEvents"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -314,7 +313,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -358,7 +357,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -382,7 +381,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -417,7 +416,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -450,7 +449,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -490,7 +489,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -530,7 +529,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -561,7 +560,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -606,14 +605,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Rules"
+                                "$ref": "/definitions/rules"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -630,14 +629,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Rules"
+                                "$ref": "/definitions/rules"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -652,7 +651,7 @@
                         "description": "Rule object or array of Rules objects",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     }
                 ],
@@ -665,14 +664,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Rules"
+                                "$ref": "/definitions/rules"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -699,13 +698,13 @@
                     "200": {
                         "description": "One single Rule object",
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -728,7 +727,7 @@
                         "description": "Rule object",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     }
                 ],
@@ -739,13 +738,13 @@
                     "200": {
                         "description": "One single Rule object",
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -768,7 +767,7 @@
                         "description": "Rule object",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     }
                 ],
@@ -779,13 +778,13 @@
                     "200": {
                         "description": "One single Rule object",
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -810,13 +809,13 @@
                     "200": {
                         "description": "The deleted Rule object",
                         "schema": {
-                            "$ref": "/#/definitions/Rules"
+                            "$ref": "//definitions/rules"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -852,7 +851,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -876,14 +875,14 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
             },
             "post": {
                 "summary": "Creates one or more Users",
-                "description": "A POST to this endpoint will create on or more Users. If a single object\nis sent, one single User is created; if an array of Users objects is\nsent, N Users are created. \n\n\nResponse is either an Object or Array, depending on the incoming data.\n\n**NOTES** \n\n* Currently, we're doing salt password hashing on every POST'd password, but AA has not been implemented **yet**.\n",
+                "description": "A POST to this endpoint will create on or more Users. If a single object is sent, one single User is created; if an array of Users objects is sent, N Users are created. \n\nResponse is either an Object or Array, depending on the incoming data.\n",
                 "parameters": [
                     {
                         "name": "body",
@@ -911,7 +910,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -944,7 +943,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -984,7 +983,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1024,7 +1023,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1055,7 +1054,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1084,14 +1083,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Rules"
+                                "$ref": "/definitions/rules"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1106,7 +1105,7 @@
                         "description": "Rule object or array of Rules objects",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     }
                 ],
@@ -1119,14 +1118,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Rules"
+                                "$ref": "/definitions/rules"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1141,7 +1140,7 @@
                         "description": "Rule object or array of Rules objects",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Rules"
+                            "$ref": "/definitions/rules"
                         }
                     }
                 ],
@@ -1154,14 +1153,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Rules"
+                                "$ref": "/definitions/rules"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1191,14 +1190,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/AlertsParams"
+                                "$ref": "/definitions/alertsParams.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1266,7 +1265,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1290,7 +1289,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1325,7 +1324,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1358,7 +1357,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1398,7 +1397,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1430,7 +1429,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
@@ -1455,13 +1454,13 @@
                     "200": {
                         "description": "The deleted Alert object",
                         "schema": {
-                            "$ref": "/#/definitions/Paramaters"
+                            "$ref": "/definitions/paramaters.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "#/definitions/Error"
+                            "$ref": "/definitions/error.json"
                         }
                     }
                 }
