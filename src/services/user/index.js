@@ -15,10 +15,10 @@ module.exports = function () {
   };
 
   // Initialize our service with any options it requires
-  app.use("/users", service(options));
+  app.use("/api/v1/users", service(options));
 
   // Get our initialize service to that we can bind hooks
-  const userService = app.service("/users");
+  const userService = app.service("/api/v1/users");
 
   // Set up our before hooks
   userService.before(hooks.before);
@@ -31,7 +31,7 @@ module.exports = function () {
   * This route takes the userId and checks for all alerts which were triggered given the user's actual rulesIds.
   * It makes use of the "alerts" services, calling conditional hooks to properly format this particular request.
   */
-  app.use("/users/:userId/alerts/", {
+  app.use("/api/v1/users/:userId/alerts/", {
     find (params, cb) {
       app.service("users").get(params.userId, params)
       .then(user => {
@@ -46,9 +46,9 @@ module.exports = function () {
         };
         // this will trigger a special hook on the service "alerts"
         params.pleaseFormat = true;
-        app.service("alerts").find(params)
+        app.service("/api/v1/alerts").find(params)
         .then(alerts => {
-          console.log("ALERTS", alerts)
+          // console.log("ALERTS", alerts)
           cb(null, alerts);
         })
         .catch(err => {
@@ -69,7 +69,7 @@ module.exports = function () {
   * The resulting generated ruleId is stored in this user's rulesIds[] by the "rules" service's hooks.
   * There is no data validation as the ORM itself will take care of that, before saving it.
   */
-  app.use("/users/:userId/rules/", {
+  app.use("/api/v1/users/:userId/rules/", {
     create (data, params, cb) {
       // adding userId prop to the body, so the "rules" service can properly save the rule(s)
       if (data instanceof Array) {
@@ -80,7 +80,7 @@ module.exports = function () {
       } else {
         data.userId = params.userId;
       }
-      app.service("rules").create(data, params)
+      app.service("/api/v1/rules").create(data, params)
       .then(data => {
         // data is the created rule(s)
         cb(null, data);
@@ -96,14 +96,14 @@ module.exports = function () {
     */
     find (params, cb) {
       // fetch the user first to get its rulesIds[]
-      app.service("users").get(params.userId, params)
+      app.service("/api/v1/users").get(params.userId, params)
       .then(user => {
         let query = {
           _id: {
             $in: user.rulesIds
           }
         };
-        app.service("rules").find({query: query}, params)
+        app.service("/api/v1/rules").find({query: query}, params)
         .then(data => {
           // data contains this user's rule(s)
           cb(null, data);
@@ -138,7 +138,7 @@ module.exports = function () {
       // params.setIds will tell the "rules" service's hook to actually $set the generated _ids,
       // instead of $push, as this is a PUT. Only POST will add ($push) the resulting id.
       params.setIds = true;
-      app.service("rules").create(data, params)
+      app.service("/api/v1/rules").create(data, params)
       .then(data => {
         // data is the created rule(s)
         cb(null, data);

@@ -14,10 +14,10 @@ module.exports = function () {
   };
 
   // Initialize our service with any options it requires
-  app.use("/events", service(options));
+  app.use("/api/v1/events", service(options));
 
   // Get our initialize service to that we can bind hooks
-  const eventsService = app.service("/events");
+  const eventsService = app.service("/api/v1/events");
 
   // Set up our before hooks
   eventsService.before(hooks.before);

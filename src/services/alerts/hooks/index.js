@@ -127,14 +127,14 @@ exports.before = {
 exports.after = {
   all: [],
   find: [
-    hooks.populate("rule", { field: "ruleId", service: "/rules" }),
-    hooks.populate("event", { field: "eventId", service: "/events" }),
-    hooks.iff(globalHooks.needsFormat(), hooks.populate("paramId", { field: "paramId", service: "/parameters" })),
+    hooks.populate("rule", { field: "ruleId", service: "/api/v1/rules" }),
+    hooks.populate("event", { field: "eventId", service: "/api/v1/events" }),
+    hooks.iff(globalHooks.needsFormat(), hooks.populate("paramId", { field: "paramId", service: "/api/v1/parameters" })),
     hooks.iff(globalHooks.needsFormat(), format())
   ],
   get: [
-    hooks.populate("rule", { field: "ruleId", service: "/rules" }),
-    hooks.populate("event", { field: "eventId", service: "/events" }),
+    hooks.populate("rule", { field: "ruleId", service: "/api/v1/rules" }),
+    hooks.populate("event", { field: "eventId", service: "/api/v1/events" }),
     hooks.iff(globalHooks.needsFormat(), format())
   ],
   create: [],

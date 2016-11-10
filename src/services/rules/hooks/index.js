@@ -16,7 +16,7 @@ const saveIds = function (idsToPatch, idsToSave) {
       idsToPatch.forEach((idToPatch, index1) => {
         promises.push(
           new Promise((resolve, reject) => {
-            hook.app.service("users").patch(idToPatch, {
+            hook.app.service("/api/v1/users").patch(idToPatch, {
               $set: {rulesIds: idsToSave}
             })
             .then(() => hook)
@@ -28,7 +28,7 @@ const saveIds = function (idsToPatch, idsToSave) {
       idsToPatch.forEach((idToPatch, index) => {
         promises.push(
           new Promise((resolve, reject) => {
-            hook.app.service("users").patch(idToPatch, {
+            hook.app.service("/api/v1/users").patch(idToPatch, {
               $push: {rulesIds: idsToSave[index]}
             })
             .then(() => hook)
@@ -39,7 +39,6 @@ const saveIds = function (idsToPatch, idsToSave) {
     }
     Promise.all(promises)
     .then(values => {
-      console.log("VALUES", values);
       return hook;
     }).catch(reason => {
       console.log(reason)
@@ -82,7 +81,7 @@ const prepareIdsToSave = function () {
 */
 const onlyIfSingleResourceOrInternal = function () {
   const disable = hooks.disable("external");
-  const removeLinkedResources = globalHooks.removeLinkedResources("alerts", "ruleId");
+  const removeLinkedResources = globalHooks.removeLinkedResources("/api/v1/alerts", "ruleId");
   return function (hook) {
     const result = hook.id !== null ? removeLinkedResources(hook) : disable(hook);
     return Promise.resolve(result).then(() => hook);
@@ -99,7 +98,7 @@ const pullIdFromUser = function () {
       // console.log("HOOK", hook)
       // then we know globalHooks.removeLinkedResources("alerts", "ruleId") has ran,
       // so we are ok to proceed
-      hook.app.service("users").patch(hook.result.userId, {
+      hook.app.service("/api/v1/users").patch(hook.result.userId, {
         $pull: {rulesIds: hook.id}
       })
       .then(() => hook)

@@ -35,7 +35,7 @@ describe("API Testing.", function () {
   after(function (done) {
     // cleaning DB ...
     if (app.get("testing").cleanDB) {
-      const services = ["users", "parameters", "rules", "events", "alerts"];
+      const services = ["/api/v1/users", "/api/v1/parameters", "/api/v1/rules", "/api/v1/events", "/api/v1/alerts"];
       let promises = [];
       for (let i = 0; i < services.length; i++) {
         promises.push(new Promise((resolve, reject) => {
@@ -67,7 +67,7 @@ describe("API Testing.", function () {
     describe(`Creating ${mockData.usersArray.length} Users.`, function () {
       it("returns code 201 & the users array", function (done) {
         request({
-          url: "http://localhost:3030/users",
+          url: "http://localhost:3030/api/v1/users",
           method: "POST",
           json: true,
           body: mockData.usersArray
@@ -87,7 +87,7 @@ describe("API Testing.", function () {
         let changedUser = {};
         changedUser.email = "testing@mailcom";
         request({
-          url: "http://localhost:3030/users/" + createdUsers[0]._id,
+          url: "http://localhost:3030/api/v1/users/" + createdUsers[0]._id,
           method: "PATCH",
           json: true,
           body: changedUser
@@ -110,7 +110,7 @@ describe("API Testing.", function () {
     describe("Creating Parameters.", function () {
       it("returns code 201 & the created parameters array", function (done) {
         request({
-          url: "http://localhost:3030/parameters",
+          url: "http://localhost:3030/api/v1/parameters",
           method: "POST",
           json: true,
           body: mockData.parametersArray
@@ -126,7 +126,7 @@ describe("API Testing.", function () {
       });
       it("returns code 409 (duplicate name)", function (done) {
         request({
-          url: "http://localhost:3030/parameters",
+          url: "http://localhost:3030/api/v1/parameters",
           method: "POST",
           json: true,
           body: mockData.duplicateParameterObj
@@ -147,7 +147,7 @@ describe("API Testing.", function () {
       it("returns code 201 & the created rules array", function (done) {
         let rules = helper.generateRules(createdUsers, createdParams);
         request({
-          url: "http://localhost:3030/rules",
+          url: "http://localhost:3030/api/v1/rules",
           method: "POST",
           json: true,
           body: rules
@@ -169,7 +169,7 @@ describe("API Testing.", function () {
       it("returns code 201 & the created events array", function (done) {
         let events = helper.generateEvents(createdParams, minValue, maxValue, eventsToBeCreatedPerParam);
         request({
-          url: "http://localhost:3030/events",
+          url: "http://localhost:3030/api/v1/events",
           method: "POST",
           json: true,
           body: events
@@ -190,7 +190,7 @@ describe("API Testing.", function () {
     describe("Determining if alerts were automatically created.", function () {
       it(`1/3 - GET all /events of a single parameter (first one in DB)`, function (done) {
         request({
-          url: "http://localhost:3030/events",
+          url: "http://localhost:3030/api/v1/events",
           method: "GET",
           json: true,
           qs: {paramId: createdParams[0]._id}
@@ -204,7 +204,7 @@ describe("API Testing.", function () {
       });
       it("2/3 - GET threshold values for that parameter", function (done) {
         request({
-          url: "http://localhost:3030/rules",
+          url: "http://localhost:3030/api/v1/rules",
           method: "GET",
           json: true,
           qs: {paramId: createdParams[0]._id}
@@ -224,7 +224,7 @@ describe("API Testing.", function () {
       });
       it("3/3 - GET /alerts for that parameter & check if API computed them correctly", function (done) {
         request({
-          url: "http://localhost:3030/alerts",
+          url: "http://localhost:3030/api/v1/alerts",
           qs: {paramId: createdParams[0]._id},
           method: "GET",
           json: true
@@ -250,7 +250,7 @@ describe("API Testing.", function () {
     describe("GET /users/{userId}/rules", function () {
       it("returns 200 with an array of this user's rules", function (done) {
         request({
-          url: "http://localhost:3030/users/" + createdUsers[0]._id + "/rules",
+          url: "http://localhost:3030/api/v1/users/" + createdUsers[0]._id + "/rules",
           method: "GET",
           json: true
         }, function (err, res, body) {
@@ -266,7 +266,7 @@ describe("API Testing.", function () {
         // using mock data with a now known paramId
         mockData.ruleToBeAddedToUser.paramId = createdParams[0]._id;
         request({
-          url: "http://localhost:3030/users/" + createdUsers[0]._id + "/rules",
+          url: "http://localhost:3030/api/v1/users/" + createdUsers[0]._id + "/rules",
           method: "POST",
           body: mockData.ruleToBeAddedToUser,
           json: true

@@ -11,7 +11,7 @@ const globalHooks = require("../../../hooks");
 */
 const onlyIfSingleResourceOrInternal = function () {
   const disable = hooks.disable("external");
-  const removeLinkedResources = globalHooks.removeLinkedResources("events", "paramId");
+  const removeLinkedResources = globalHooks.removeLinkedResources("/api/v1/events", "paramId");
   return function (hook) {
     const result = hook.id !== null ? removeLinkedResources(hook) : disable(hook);
     return Promise.resolve(result).then(() => hook);

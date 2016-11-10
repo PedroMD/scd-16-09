@@ -54,7 +54,7 @@ const format = function () {
 */
 const onlyIfSingleResourceOrInternal = function () {
   const disable = hooks.disable("external");
-  const removeLinkedResources = globalHooks.removeLinkedResources("alerts", "eventId");
+  const removeLinkedResources = globalHooks.removeLinkedResources("/api/v1/alerts", "eventId");
   return function (hook) {
     const result = hook.id !== null ? removeLinkedResources(hook) : disable(hook);
     return Promise.resolve(result).then(() => hook);
@@ -65,18 +65,18 @@ const onlyIfSingleResourceOrInternal = function () {
 const checkForRule = function (event) {
   return function (hook) {
     return new Promise((resolve, reject) => {
-      hook.app.service("users").find()
+      hook.app.service("/api/v1/users").find()
       .then(users => {
         users.forEach((user, indexUsers) => {
           user.rulesIds.forEach((rule, indexRules) => {
-            hook.app.service("rules").get(rule)
+            hook.app.service("/api/v1/rules").get(rule)
             .then(rule => {
               if (rule.paramId.toString() === event.paramId.toString()) {
                 // console.log("CONDITION PASSED - THERE IS A RULE FOR THIS PARAM")
                 if (event.value > rule.threshold) {
                   // console.log("CONDITION PASSED - ALERT!")
                   delete hook.params.provider;
-                  hook.app.service("alerts").create({
+                  hook.app.service("/api/v1/alerts").create({
                     userId: user._id,
                     ruleId: rule._id,
                     paramId: event.paramId,
@@ -173,7 +173,7 @@ exports.before = {
 exports.after = {
   all: [],
   find: [
-    hooks.iff(globalHooks.needsFormat(), hooks.populate("paramId", { field: "paramId", service: "/parameters" })),
+    hooks.iff(globalHooks.needsFormat(), hooks.populate("paramId", { field: "paramId", service: "/api/v1/parameters" })),
     hooks.iff(globalHooks.needsFormat(), format())
   ],
   get: [],

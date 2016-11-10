@@ -14,10 +14,10 @@ module.exports = function() {
   };
 
   // Initialize our service with any options it requires
-  app.use("/alerts", service(options));
+  app.use("/api/v1/alerts", service(options));
 
   // Get our initialize service to that we can bind hooks
-  const alertsService = app.service("/alerts");
+  const alertsService = app.service("/api/v1/alerts");
 
   // Set up our before hooks
   alertsService.before(hooks.before);
