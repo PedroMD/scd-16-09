@@ -12,8 +12,8 @@ The app has been deployed to Heroku, so you can point your REST client to [https
 *Swagger specification can also be explored by visiting [https://scd-16-09.herokuapp.com](https://scd-16-09.herokuapp.com) & Models at [https://scd-16-09.herokuapp.com/models](https://scd-16-09.herokuapp.com/models)*
 
 ### Postman Collections
-
-
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/90603e15923927ca622a)
+(generated from Swagger's specification)
 
 ## Documentation
 
