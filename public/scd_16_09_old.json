@@ -7,7 +7,8 @@
     },
     "host": "scd-16-09.herokuapp.com",
     "schemes": [
-        "http", "https"
+        "http",
+        "https"
     ],
     "produces": [
         "application/json"
@@ -882,7 +883,7 @@
             },
             "post": {
                 "summary": "Creates one or more Users",
-                "description": "A POST to this endpoint will create on or more Users. If a single object is sent, one single User is created; if an array of Users objects is sent, N Users are created. \n\nResponse is either an Object or Array, depending on the incoming data.\n",
+                "description": "A POST to this endpoint will create on or more Users. If a single object\nis sent, one single User is created; if an array of Users objects is\nsent, N Users are created. \n\n\nResponse is either an Object or Array, depending on the incoming data.\n\n**NOTES** \n\n* Currently, we're doing salt password hashing on every POST'd password, but AA has not been implemented **yet**.\n",
                 "parameters": [
                     {
                         "name": "body",
