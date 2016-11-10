@@ -6,11 +6,14 @@
         "version": "v1"
     },
     "host": "scd-16-09.herokuapp.com",
-    "basePath":"/api/v1",
+    "basePath": "/api/v1",
     "schemes": [
         "https"
     ],
     "produces": [
+        "application/json"
+    ],
+    "consumes": [
         "application/json"
     ],
     "paths": {
@@ -193,6 +196,14 @@
                 "summary": "Partially updates a single Parameter",
                 "description": "A PATCH request to a known resource always yields in a *partially* updated resource. This means that the incoming data will be merged with the existing resource's content.\n",
                 "parameters": [
+                    {
+                        "name": "parameterId",
+                        "in": "path",
+                        "description": "The ID of the Parameter to be fetched.",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
                     {
                         "name": "body",
                         "in": "body",
@@ -795,7 +806,7 @@
                 "description": "A DELETE request to a known Rule completely deletes the resource.\n\n**NOTES**\n\n* As we are populating the *RuleId* when doing *GET /users/{userId/alerts/*, \na DELETE to a known Rule resource always deletes every **Alert** where *RuleId* matches\n\n\n* When a rule is deleted, its *id* are also be removed from the relevant *user's *rulesIds[]*. \nThis is needed as we use this *rulesIds[]* to determine which rules are valid, at the moment, for \na given user \n(when GET */users/{userId/alerts/* or */users/{userId}/alerts/*, for instance)\n",
                 "parameters": [
                     {
-                        "name": "RuleId",
+                        "name": "ruleId",
                         "in": "path",
                         "description": "The ID of the Rule to be deleted.",
                         "required": true,
@@ -1055,7 +1066,7 @@
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1101,6 +1112,14 @@
                 "description": "A POST to this endpoint will create on or more Rules. If a single object is sent, one single Rule is created; if an array of Rules objects is sent, N Rules are created. \n\nResponse is either an Object or Array, depending on the incoming data.\n\nThe resulting *id* will be **pushed** to the relevant user's (*userId* in path) array of rules (*rulesIds[]*)\n",
                 "parameters": [
                     {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The ID of the User to be queried.",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
                         "name": "body",
                         "in": "body",
                         "description": "Rule object or array of Rules objects",
@@ -1135,6 +1154,14 @@
                 "summary": "Creates one or more Rules and updates User",
                 "description": "A POST to this endpoint will create on or more Rules. If a single object is sent, one single Rule is created; if an array of Rules objects is sent, N Rules are created. \n\nResponse is either an Object or Array, depending on the incoming data.\n\n**NOTES**\n\n* NOT the same as a POST */users/{userId}/rules* because it **overrides** any existing rules, rather than just adding.\n\nThe resulting *id(s)* will be **set** on that relevant user's (*userId* in path) array of rules (*rulesIds[]*)\n",
                 "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The ID of the User to be queried.",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
                     {
                         "name": "body",
                         "in": "body",
@@ -1392,7 +1419,7 @@
                     "200": {
                         "description": "One single Alert object",
                         "schema": {
-                            "$ref": "https://scd-16-09.herokuapp.com/definitions/Paramaters"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
@@ -1407,6 +1434,14 @@
                 "summary": "Partially updates a single Alert (disabled from external requests)",
                 "description": "A PATCH request to a known resource always yields in a *partially* updated resource. This means that the incoming data will be merged with the existing resource's content.\n\n  **NOTES**\n  \n  * Currently disabled for external requests (only the API itself can issue this query, or our unit-testing suite). \n\n  * It is *not safe* to allow for an external PATCH, as it could corrupt the automatically created reference ids (*userId*, *eventId*, *paramId*).\n",
                 "parameters": [
+                    {
+                        "name": "alertId",
+                        "in": "path",
+                        "description": "The ID of the Alert to be fetched.",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
                     {
                         "name": "body",
                         "in": "body",
@@ -1424,7 +1459,7 @@
                     "200": {
                         "description": "One single Alert object",
                         "schema": {
-                            "$ref": "https://scd-16-09.herokuapp.com/definitions/Paramaters"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
@@ -1455,7 +1490,7 @@
                     "200": {
                         "description": "The deleted Alert object",
                         "schema": {
-                            "$ref": "/https://scd-16-09.herokuapp.com/definitions/Paramaters"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
@@ -1464,224 +1499,6 @@
                             "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "Events": {
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique ID generated by DB"
-                },
-                "value": {
-                    "type": "integer",
-                    "description": "Event value of a Parameter"
-                },
-                "paramId": {
-                    "type": "string",
-                    "description": "Reference to a single Parameter id"
-                },
-                "timestamp": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "In date format (UTC Timezone). Automatically added whenever an Event is created."
-                }
-            }
-        },
-        "Rules": {
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique ID generated by DB"
-                },
-                "paramId": {
-                    "type": "string",
-                    "description": "Reference to a single Parameter id"
-                },
-                "userId": {
-                    "type": "string",
-                    "description": "Reference to a single User id"
-                },
-                "threshold": {
-                    "type": "integer",
-                    "description": "The defined threshold value for this rule. Any Event's value higher than this will result in a new Alert."
-                },
-                "createdAt": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "In date format (UTC Timezone). Automatically added whenever a Rule is created."
-                }
-            }
-        },
-        "Alerts": {
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique ID generated by DB"
-                },
-                "ruleId": {
-                    "type": "string",
-                    "description": "Reference to a single Rule id"
-                },
-                "paramId": {
-                    "type": "string",
-                    "description": "Reference to a single Parameter id"
-                },
-                "userId": {
-                    "type": "string",
-                    "description": "Reference to a single User id"
-                },
-                "eventId": {
-                    "type": "string",
-                    "description": "Reference to a single Event id"
-                },
-                "timestamp": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "In date format (UTC Timezone). Automatically added whenever an Alert is created."
-                }
-            }
-        },
-        "Parameters": {
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique ID generated by DB"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The unique name of the Parameter"
-                },
-                "units": {
-                    "type": "string",
-                    "description": "Parameter's units of measure"
-                },
-                "createdAt": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "In date format (UTC Timezone). Automatically added whenever a Parameter is created."
-                }
-            }
-        },
-        "Users": {
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "description": "Unique ID generated by DB"
-                },
-                "email": {
-                    "type": "string",
-                    "description": "The unique email of a User"
-                },
-                "rulesIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "description": "A list of Rules ids"
-                    }
-                },
-                "createdAt": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "In date format (UTC Timezone). Automatically added whenever a User is created."
-                },
-                "password": {
-                    "type": "string",
-                    "description": "This user's password. Currently not in use."
-                }
-            }
-        },
-        "ParametersEvents": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The unique name of the Parameter"
-                },
-                "units": {
-                    "type": "string",
-                    "description": "Parameter's units of measure"
-                },
-                "events": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "value": {
-                                "type": "integer"
-                            },
-                            "timestamp": {
-                                "type": "string",
-                                "format": "date"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "AlertsParams": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The unique name of the Parameter"
-                },
-                "units": {
-                    "type": "string",
-                    "description": "Parameter's units of measure"
-                },
-                "threshold": {
-                    "type": "integer",
-                    "description": "Threshold value which has triggered these alerts"
-                },
-                "events": {
-                    "type": "array",
-                    "description": "Array containing all events whose value > threshold, for the particular Parameter",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "value": {
-                                "type": "integer"
-                            },
-                            "timestamp": {
-                                "type": "string",
-                                "format": "date"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "Error": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "HTTP error code (https://docs.feathersjs.com/middleware/error-handling.html)"
-                },
-                "message": {
-                    "type": "string",
-                    "description": "The error message in a string format (https://docs.feathersjs.com/middleware/error-handling.html)"
-                },
-                "className": {
-                    "type": "string",
-                    "description": "A CSS class name that can be handy for styling errors based on the error type. (https://docs.feathersjs.com/middleware/error-handling.html)"
-                },
-                "data": {
-                    "type": "object",
-                    "description": "Object that may contain additional data (https://docs.feathersjs.com/middleware/error-handling.html)"
-                },
-                "errors": {
-                    "type": "object",
-                    "description": "Object that may contain additional info about the error (https://docs.feathersjs.com/middleware/error-handling.html)"
                 }
             }
         }
