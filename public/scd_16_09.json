@@ -45,14 +45,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/parameters.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -69,14 +69,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/parameters.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -91,7 +91,7 @@
                         "description": "Parameter object or array of Parameters objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     }
                 ],
@@ -104,14 +104,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/parameters.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -138,13 +138,13 @@
                     "200": {
                         "description": "One single Parameter object",
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -167,7 +167,7 @@
                         "description": "Parameter object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     }
                 ],
@@ -178,13 +178,13 @@
                     "200": {
                         "description": "One single Parameter object",
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -199,7 +199,7 @@
                         "description": "Parameter object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     }
                 ],
@@ -210,13 +210,13 @@
                     "200": {
                         "description": "One single Parameter object",
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -241,13 +241,13 @@
                     "200": {
                         "description": "The deleted Parameter object",
                         "schema": {
-                            "$ref": "/definitions/parameters.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parameters.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -274,13 +274,13 @@
                     "200": {
                         "description": "One single formated object",
                         "schema": {
-                            "$ref": "/definitions/parametersEvents.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/parametersEvents.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -307,14 +307,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/events.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -351,14 +351,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/events.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -375,14 +375,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/events.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -397,7 +397,7 @@
                         "description": "Event object or array of Events objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     }
                 ],
@@ -410,14 +410,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/events.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -444,13 +444,13 @@
                     "200": {
                         "description": "One single Event object",
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -473,7 +473,7 @@
                         "description": "Event object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     }
                 ],
@@ -484,13 +484,13 @@
                     "200": {
                         "description": "One single Event object",
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -505,7 +505,7 @@
                         "description": "Event object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     },
                     {
@@ -524,13 +524,13 @@
                     "200": {
                         "description": "One single Event object",
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -555,13 +555,13 @@
                     "200": {
                         "description": "The deleted Event object",
                         "schema": {
-                            "$ref": "/definitions/events.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/events.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -606,14 +606,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/rules.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -630,14 +630,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/rules.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -652,7 +652,7 @@
                         "description": "Rule object or array of Rules objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     }
                 ],
@@ -665,14 +665,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/rules.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -699,13 +699,13 @@
                     "200": {
                         "description": "One single Rule object",
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -728,7 +728,7 @@
                         "description": "Rule object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     }
                 ],
@@ -739,13 +739,13 @@
                     "200": {
                         "description": "One single Rule object",
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -768,7 +768,7 @@
                         "description": "Rule object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     }
                 ],
@@ -779,13 +779,13 @@
                     "200": {
                         "description": "One single Rule object",
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -810,13 +810,13 @@
                     "200": {
                         "description": "The deleted Rule object",
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -845,14 +845,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/users.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -869,14 +869,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/users.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -891,7 +891,7 @@
                         "description": "User object or array of Users objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     }
                 ],
@@ -904,14 +904,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/users.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -938,13 +938,13 @@
                     "200": {
                         "description": "One single User object",
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -967,7 +967,7 @@
                         "description": "User object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     }
                 ],
@@ -978,13 +978,13 @@
                     "200": {
                         "description": "One single User object",
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1007,7 +1007,7 @@
                         "description": "User object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     }
                 ],
@@ -1018,13 +1018,13 @@
                     "200": {
                         "description": "One single User object",
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1049,13 +1049,13 @@
                     "200": {
                         "description": "The deleted User object",
                         "schema": {
-                            "$ref": "/definitions/users.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/users.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json.json"
                         }
                     }
                 }
@@ -1084,14 +1084,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/rules.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1106,7 +1106,7 @@
                         "description": "Rule object or array of Rules objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     }
                 ],
@@ -1119,14 +1119,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/rules.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1141,7 +1141,7 @@
                         "description": "Rule object or array of Rules objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/rules.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                         }
                     }
                 ],
@@ -1154,14 +1154,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/rules.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/rules.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1191,14 +1191,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/alertsParams.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/alertsParams.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1259,14 +1259,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/alerts.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1283,14 +1283,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/alerts.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1305,7 +1305,7 @@
                         "description": "Alert object or array of Alerts objects",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/alerts.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                         }
                     }
                 ],
@@ -1318,14 +1318,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "/definitions/alerts.json"
+                                "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                             }
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1352,13 +1352,13 @@
                     "200": {
                         "description": "One single Alert object",
                         "schema": {
-                            "$ref": "/definitions/alerts.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1381,7 +1381,7 @@
                         "description": "Alert object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/alerts.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                         }
                     }
                 ],
@@ -1392,13 +1392,13 @@
                     "200": {
                         "description": "One single Alert object",
                         "schema": {
-                            "$ref": "/definitions/Paramaters"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/Paramaters"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1413,7 +1413,7 @@
                         "description": "Alert object",
                         "required": true,
                         "schema": {
-                            "$ref": "/definitions/alerts.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/alerts.json"
                         }
                     }
                 ],
@@ -1424,13 +1424,13 @@
                     "200": {
                         "description": "One single Alert object",
                         "schema": {
-                            "$ref": "/definitions/Paramaters"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/Paramaters"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
@@ -1455,13 +1455,13 @@
                     "200": {
                         "description": "The deleted Alert object",
                         "schema": {
-                            "$ref": "//definitions/Paramaters"
+                            "$ref": "/https://scd-16-09.herokuapp.com/definitions/Paramaters"
                         }
                     },
                     "default": {
                         "description": "Unexpected error",
                         "schema": {
-                            "$ref": "/definitions/error.json"
+                            "$ref": "https://scd-16-09.herokuapp.com/definitions/error.json"
                         }
                     }
                 }
